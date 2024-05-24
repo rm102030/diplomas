@@ -36,6 +36,6 @@ variable "table_billing_mode" {
 variable "api_stage" {
   description = "Stage a Desplegar."
   type        = string
-  default     = "prod"
+  default     = "dev"
 
 }
