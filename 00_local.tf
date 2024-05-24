@@ -7,7 +7,7 @@ resource "local_file" "deployment_template" {
     #API_ENDPOINT = "${aws_apigatewayv2_stage.default.invoke_url}"
     }
   )
-  filename = "/Users/ricardo.martinez/Documents/terraform/diplomas/lambda/lambda1-urlpresigned/front/contactus.html"
+  filename = "${path.module}/front/contactus.html"
 }
 
 # Aqui se configura la variable del  Endpoint de la DynamoDB 
@@ -19,7 +19,7 @@ resource "local_file" "deployment_template_DB" {
     #API_ENDPOINT = "${aws_apigatewayv2_stage.default.invoke_url}"
     }
   )
-  filename = "/Users/ricardo.martinez/Documents/terraform/diplomas/lambda/lambda1-urlpresigned/front/lambda_function.py"
+  filename = "${path.module}/front/lambda_function.py"
 }
 
 
@@ -36,5 +36,5 @@ resource "local_file" "deployment_template_qr" {
     QR        = aws_s3_bucket.qrdiplomas.id
     }
   )
-  filename = "/Users/ricardo.martinez/Documents/terraform/diplomas/lambda/lambda1-urlpresigned/qr/lambda_function.py"
+  filename = "${path.module}/qr/lambda_function.py"
 }

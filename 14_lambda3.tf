@@ -2,7 +2,7 @@
 data "archive_file" "qrgenerate_artefact" {
   output_path = "files/qr-artefact.zip"
   type        = "zip"
-  source_dir  = "/Users/ricardo.martinez/Documents/terraform/diplomas/lambda/lambda1-urlpresigned/qr"
+  source_dir  = "${path.module}/qr"
   depends_on  = [local_file.deployment_template_qr]
 }
 

@@ -2,7 +2,7 @@
 data "archive_file" "email_artefact" {
   output_path = "files/email-artefact.zip"
   type        = "zip"
-  source_dir  = "/Users/ricardo.martinez/Documents/terraform/diplomas/lambda/lambda1-urlpresigned/email"
+  source_dir  = "${path.module}/email"
   depends_on  = [local_file.deployment_template]
 }
 
