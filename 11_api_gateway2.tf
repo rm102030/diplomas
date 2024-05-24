@@ -61,7 +61,7 @@ resource "aws_api_gateway_deployment" "front" {
 resource "aws_api_gateway_stage" "stage" {
   deployment_id = aws_api_gateway_deployment.front.id
   rest_api_id   = aws_api_gateway_rest_api.front.id
-  stage_name    = "dev"
+  stage_name    = var.api_stage
 }
 
 #Autorizador de Lambda para ejecutar la invovacion desde el Api Gateway

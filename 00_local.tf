@@ -4,6 +4,7 @@ resource "local_file" "deployment_template" {
     #API_ENDPOINT = "API_ENDPOINT"
     #API_ENDPOINT = var.aws_region
     API_ENDPOINT = aws_apigatewayv2_stage.default.invoke_url
+    STAGE = var.api_stage
     #API_ENDPOINT = "${aws_apigatewayv2_stage.default.invoke_url}"
     }
   )
