@@ -116,7 +116,7 @@
     </form>
 </div>
 <div id="form-container-02">
-  <form>
+  
 		<h2><center>Seleccione el Certificado</center></h2>
 			<div v-if="!image">
 			  <h3>Subir Certificado</h3>
@@ -128,7 +128,7 @@
 			<button v-if="!uploadURL" @click="removeImage">Remover imagen</button>
 			<button v-if="!uploadURL" @click="uploadImage">Cargar imagen</button></center>
 			</div>
-			<h4 v-if="uploadURL">Satisfactorio! Se ha cargado la Certificacion.</h4>			
+			<h4 v-if="uploadURL"><center>Satisfactorio! Se ha cargado la Certificacion.</center></h4>			
 		<script>
 			const MAX_IMAGE_SIZE = 1000000
 			/* ENTER YOUR ENDPOINT HERE */
@@ -192,7 +192,7 @@
 			}
 		})
 		</script>
-</form>
+
 </div>
 </div>
 </body>
@@ -240,6 +240,15 @@ form {
   position: absolute;
   top: 90px;
   left: 790px;
+  display: block;
+  margin: auto;
+  background-color: white;
+  width: 400px;
+  height: 650px;
+  border-radius: 15px;
+  padding: 50px;
+  padding-top: 0.5em;
+  padding-bottom: 1.5em;
   
 }
 

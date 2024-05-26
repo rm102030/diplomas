@@ -8,3 +8,7 @@ locals {
     Owner     = "Ricardo Martinez"
   }
 }
+locals {
+  callback_urls = "${aws_api_gateway_deployment.front.invoke_url}${aws_api_gateway_stage.stage.stage_name}/${aws_api_gateway_resource.root.path_part}"
+
+}

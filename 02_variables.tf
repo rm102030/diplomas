@@ -39,3 +39,27 @@ variable "api_stage" {
   default     = "dev"
 
 }
+variable "aws_identity_ses" {
+default = "ricardo.martinez@pragma.com.co"
+}
+variable "aws_domain_cognito"{
+  default = "lugareslejanos"
+}
+
+# Usuario para Cognito... al ingresar le pide cambio de contraseña
+variable "user_cognito" {
+  default = "ricardomartinezcun@gmail.com"
+}
+
+variable "password_user_cognito" {
+  default = "Progen2024*"
+}
+
+# #Multiples usuarios para cognito coloquelos separados por , 
+# variable "users" {
+#   default = ["user1@email.com", "user2@email.com"]
+# }
+
+# variable "passwords" {
+#   default = ["Password1*", "Password2*"]
+# }
