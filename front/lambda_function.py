@@ -77,7 +77,7 @@ def insert_record(formbody):
     
     formbody = formbody.replace("=", "' : '")
     formbody = formbody.replace("&", "', '")
-    formbody = "INSERT INTO ${DB_ENDPOINT} value {'" + formbody +  "'}"
+    formbody = "INSERT INTO dbapp value {'" + formbody +  "'}"
     
     client = boto3.client('dynamodb')    
     response = client.execute_statement(Statement= formbody)
