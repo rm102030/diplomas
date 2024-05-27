@@ -1,7 +1,7 @@
 resource "aws_s3_bucket_policy" "bucket_policy" {
-  bucket = aws_s3_bucket.example.id
-
-  policy = <<EOF
+  bucket     = aws_s3_bucket.urlpresigned.id
+  depends_on = [aws_s3_bucket.urlpresigned]
+  policy     = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [

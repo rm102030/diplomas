@@ -40,9 +40,9 @@ variable "api_stage" {
 
 }
 variable "aws_identity_ses" {
-default = "ricardo.martinez@pragma.com.co"
+  default = "ricardo.martinez@pragma.com.co"
 }
-variable "aws_domain_cognito"{
+variable "aws_domain_cognito" {
   default = "lugareslejanos"
 }
 

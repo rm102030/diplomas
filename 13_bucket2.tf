@@ -48,7 +48,8 @@ resource "aws_s3_bucket_acl" "qrdiplomas" {
 # Adding S3 bucket as trigger to my lambda and giving the permissions
 ##################
 resource "aws_s3_bucket_notification" "aws-lambda-trigger-qr" {
-  bucket = aws_s3_bucket.qrdiplomas.id
+  bucket     = aws_s3_bucket.qrdiplomas.id
+  depends_on = [aws_lambda_function.qrgenerate]
   lambda_function {
     lambda_function_arn = aws_lambda_function.email.arn
     events              = ["s3:ObjectCreated:*"]

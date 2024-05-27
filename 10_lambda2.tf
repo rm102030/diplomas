@@ -3,7 +3,7 @@ data "archive_file" "front_artefact" {
   output_path = "files/front-artefact.zip"
   type        = "zip"
   source_dir  = "${path.module}/front"
-  depends_on  = [local_file.deployment_template, local_file.deployment_template_DB]  
+  depends_on  = [local_file.deployment_template, local_file.deployment_template_DB]
 }
 
 resource "aws_lambda_function" "front" {

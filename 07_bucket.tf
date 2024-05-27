@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "urlpresigned" {
   bucket = var.aws_bucket_presigned
 
   tags = {
@@ -6,8 +6,8 @@ resource "aws_s3_bucket" "example" {
     Environment = "Dev"
   }
 }
-resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.example.id
+resource "aws_s3_bucket_public_access_block" "urlpredigned" {
+  bucket = aws_s3_bucket.urlpresigned.id
 
   block_public_acls       = false
   block_public_policy     = false
@@ -16,7 +16,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
 }
 
 resource "aws_s3_bucket_cors_configuration" "s3_bucket_cors" {
-  bucket = aws_s3_bucket.example.id
+  bucket = aws_s3_bucket.urlpresigned.id
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "PUT", "HEAD"]
@@ -30,7 +30,7 @@ resource "aws_s3_bucket_cors_configuration" "s3_bucket_cors" {
 # Adding S3 bucket as trigger to my lambda and giving the permissions
 ##################
 resource "aws_s3_bucket_notification" "aws-lambda-trigger" {
-  bucket = aws_s3_bucket.example.id
+  bucket = aws_s3_bucket.urlpresigned.id
   lambda_function {
     lambda_function_arn = aws_lambda_function.qrgenerate.arn
     events              = ["s3:ObjectCreated:*"]
@@ -43,7 +43,7 @@ resource "aws_lambda_permission" "test" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.qrgenerate.function_name
   principal     = "s3.amazonaws.com"
-  source_arn    = "arn:aws:s3:::${aws_s3_bucket.example.id}"
+  source_arn    = "arn:aws:s3:::${aws_s3_bucket.urlpresigned.id}"
 }
 ###########
 # output of lambda arn
