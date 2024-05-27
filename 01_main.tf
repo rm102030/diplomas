@@ -16,5 +16,13 @@ provider "aws" {
   #   }
 }
 
-
+terraform {
+  backend "s3" {
+    bucket         = "pragmalabstatebucket2024"
+    dynamodb_table = "pragmalabstatebucket"
+    encrypt        = true
+    key            = "./terraform.tfstate"
+    region         = "us-east-1"
+  }
+}
 

@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "urlpresigned" {
     Environment = "Dev"
   }
 }
-resource "aws_s3_bucket_public_access_block" "urlpredigned" {
+resource "aws_s3_bucket_public_access_block" "urlpresigned" {
   bucket = aws_s3_bucket.urlpresigned.id
 
   block_public_acls       = false
@@ -25,6 +25,24 @@ resource "aws_s3_bucket_cors_configuration" "s3_bucket_cors" {
     max_age_seconds = 3000
   }
 }
+
+resource "aws_s3_bucket_ownership_controls" "urlpresigned" {
+  bucket = aws_s3_bucket.urlpresigned.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_acl" "urlpresigned" {
+  depends_on = [
+    aws_s3_bucket_ownership_controls.urlpresigned,
+    aws_s3_bucket_public_access_block.urlpresigned
+  ]
+  bucket = aws_s3_bucket.urlpresigned.id
+  acl    = "public-read-write"
+
+}
+
 
 ##################
 # Adding S3 bucket as trigger to my lambda and giving the permissions
