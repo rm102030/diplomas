@@ -18,7 +18,7 @@ resource "aws_lambda_function" "front" {
   filename         = data.archive_file.front_artefact.output_path
   source_code_hash = data.archive_file.front_artefact.output_base64sha256
 
-  timeout     = 5
+  timeout     = 10
   memory_size = 128
   environment {
     variables = {

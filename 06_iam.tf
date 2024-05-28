@@ -81,7 +81,9 @@ resource "aws_iam_role_policy_attachment" "role-policy-attachment" {
 resource "aws_iam_role_policy_attachment" "role-policy-attachment-qr" {
   for_each = toset([
     "arn:aws:iam::aws:policy/AmazonS3FullAccess",
-    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+    "arn:aws:iam::aws:policy/PowerUserAccess",
+    "arn:aws:iam::aws:policy/AWSLambdaExecute"
   ])
 
   role       = aws_iam_role.qr_lambda.name

@@ -74,11 +74,14 @@ def page_router(httpmethod,querystring,formbody):
         }
 
 def insert_record(formbody):
-    
-    formbody = formbody.replace("=", "' : '")
-    formbody = formbody.replace("&", "', '")
-    formbody = "INSERT INTO ${DB_ENDPOINT} value {'" + formbody +  "'}"
+    #Se agrega la variable de entorno CERTIFICADO para guardar el nombre de la imgaden que esta en el bucket S3 y que se guarda en Dybamodb
+    #Por eso agregamos la letra c al final de formbody
+    formbodyc = f"{formbody}&certificado={os.environ['CERTIFICADO']}"
+    print (formbodyc)
+    formbodyc = formbodyc.replace("=", "' : '")
+    formbodyc = formbodyc.replace("&", "', '")
+    formbodyc = "INSERT INTO ${DB_ENDPOINT} value {'" + formbodyc +  "'}"
     
     client = boto3.client('dynamodb')    
-    response = client.execute_statement(Statement= formbody)
+    response = client.execute_statement(Statement= formbodyc)
 
