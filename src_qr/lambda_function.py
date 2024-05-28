@@ -31,19 +31,6 @@ def lambda_handler(event, context):
             url = f"https://{'${PRESIGNED}'}.s3.us-east-1.amazonaws.com/{archivo}"
             print(url)
             
-    # Envio de ambiente de entorno a la lambda de front para guardar el nombre del archivo 
-
-    client = boto3.client('lambda')
-    response = client.update_function_configuration(
-        FunctionName= "front",
-        Environment={
-            'Variables': {
-            'CERTIFICADO': archivo
-                    }
-                }
-            )
-    print(response)
-    
 
     # Initialize a session using Amazon S3
     s3 = boto3.client('s3')        
