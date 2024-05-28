@@ -16,7 +16,7 @@ resource "aws_lambda_function" "src" {
   filename         = data.archive_file.src_artefact.output_path
   source_code_hash = data.archive_file.src_artefact.output_base64sha256
 
-  timeout     = 5
+  timeout     = 7
   memory_size = 128
   environment {
     variables = {
