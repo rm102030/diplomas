@@ -17,6 +17,7 @@ resource "local_file" "deployment_template_DB" {
     #API_ENDPOINT = "API_ENDPOINT"
     #API_ENDPOINT = var.aws_region
     DB_ENDPOINT = var.aws_dynamodb_app
+    PRESIGNED = aws_s3_bucket.urlpresigned.id
     #API_ENDPOINT = "${aws_apigatewayv2_stage.default.invoke_url}"
     }
   )

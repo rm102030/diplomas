@@ -29,7 +29,8 @@ resource "aws_s3_bucket_cors_configuration" "s3_bucket_cors" {
 resource "aws_s3_bucket_ownership_controls" "urlpresigned" {
   bucket = aws_s3_bucket.urlpresigned.id
   rule {
-    object_ownership = "BucketOwnerPreferred"
+    #object_ownership = "BucketOwnerPreferred"
+    object_ownership = "ObjectWriter"
   }
 }
 

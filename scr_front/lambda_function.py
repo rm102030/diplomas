@@ -78,7 +78,7 @@ def insert_record(formbody):
     #Se agrega la variable ARCHIVO para guardar el nombre de la imagen que esta en el bucket S3 y que se guarda en Dybamodb
     #Por eso agregamos la letra c al final de formbody
     s3 = boto3.resource('s3') 
-    my_bucket = s3.Bucket('urlprefirmadas')    
+    my_bucket = s3.Bucket('${PRESIGNED}')    
     last_modified_date = datetime(1939, 9, 1).replace(tzinfo=None)
     for file in my_bucket.objects.all():
         file_date = file.last_modified.replace(tzinfo=None)
