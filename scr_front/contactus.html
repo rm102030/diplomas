@@ -112,11 +112,16 @@
         <option value="erlang">Erlang</option>
         <option value="NoAplica">NoAplica</option>
         </select></br> 
-			<button type="submit" value="Submit" onclick="myFunction()">Guardar</button>      
+			<button id="myBtn" type="submit" value="Submit" onclick="myFunction()" disabled="disabled">Guardar</button>            
     </form>
 </div>
-<div id="form-container-02">
-  
+<!--  script para habilitar el boton de guardar -->
+<script>
+  function myFunctionbt() {
+     document.getElementById("myBtn").disabled = false;
+  }
+  </script>
+<div id="form-container-02">  
 		<h2><center>Seleccione el Certificado</center></h2>
 			<div v-if="!image">
 			  <h3>Subir Certificado</h3>
@@ -126,7 +131,7 @@
 			<div v-else>
 			<img :src="image"/><center>
 			<button v-if="!uploadURL" @click="removeImage">Remover imagen</button>
-			<button v-if="!uploadURL" @click="uploadImage">Cargar imagen</button></center>
+			<button v-if="!uploadURL" @click="uploadImage" onclick="myFunctionbt()">Cargar imagen</button></center>
 			</div>
 			<h4 v-if="uploadURL"><center>Satisfactorio! Se ha cargado la Certificacion.</center></h4>			
 		<script>
