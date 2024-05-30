@@ -112,7 +112,7 @@
         <option value="erlang">Erlang</option>
         <option value="NoAplica">NoAplica</option>
         </select></br> 
-			<button id="myBtn" type="submit" value="Submit" onclick="myFunction()" disabled="disabled">Guardar</button>            
+	  <button id="myBtn" type="submit" value="Submit" onclick="myFunction()" disabled="disabled">Guardar</button>            
     </form>
 </div>
 <!--  script para habilitar el boton de guardar -->
@@ -125,7 +125,8 @@
 		<h2><center>Seleccione el Certificado</center></h2>
 			<div v-if="!image">
 			  <h3>Subir Certificado</h3>
-			  <p>Importante solo se admite formato de imagen *.JPEG</p>
+			  <center><p style="color: red; margin-top:0; margin-bottom:0;">IMPORTANTE</p></center> 
+        <center><p style="color: red; margin-top:0; margin-bottom:0;">Asegúrese de adjuntar el certificado antes de guardar</p></center><br>
 			<input type="file" @change="onFileChange" accept="image/jpeg">
 			</div>
 			<div v-else>
@@ -253,15 +254,16 @@ form {
   border-radius: 15px;
   padding: 50px;
   padding-top: 0.5em;
-  padding-bottom: 1.5em;  
+  padding-bottom: 1.5em;
+  
 }
 
 img {
-  width: 100%;
+  width: 80%;
   margin: auto;
-  display: inline;
-  margin-bottom: 10px;
-  
+  display: inline;  
+  display: flex; justify-content: center; 
+  margin-bottom: 20px;
 }
 
 /*CSS*/
@@ -322,6 +324,7 @@ button[type="submit"]{
 
 p{
   max-width: 30ch;
+  
 }
 
 select{
