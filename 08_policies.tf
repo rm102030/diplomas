@@ -1,4 +1,5 @@
 resource "aws_s3_bucket_policy" "bucket_policy" {
+  depends_on = [aws_s3_bucket_public_access_block.urlpresigned]  
   bucket     = aws_s3_bucket.urlpresigned.id
   #depends_on = [aws_s3_bucket.urlpresigned]
   policy     = <<EOF
