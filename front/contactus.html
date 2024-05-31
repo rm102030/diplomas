@@ -57,7 +57,7 @@
 <!-- <div>A div element with a double border.</div> -->
 <div id= principal>
   <div id="form-container-01">  
-<form action="/${STAGE}/front" method="post">
+<form action="/dev/front" method="post">
 				<script>
 				function myFunction() {
 				  document.getElementById("id").value = Math.floor(Math.random() * 1001);
@@ -138,7 +138,7 @@
 		<script>
 			const MAX_IMAGE_SIZE = 1000000
 			/* ENTER YOUR ENDPOINT HERE */
-			const API_ENDPOINT = '${API_ENDPOINT}'
+			const API_ENDPOINT = 'https://iihcbvowhk.execute-api.us-east-1.amazonaws.com/'
 	        /*global Vue*/
 			new Vue({
 			el: "#form-container-02",
@@ -280,7 +280,7 @@ body{
   justify-content: center;
   align-items: center;
   background-color: var(--color-principal);
-  background-image: url(${URL_FONDO_FRONT}); 
+  background-image: url(https://fondo-pantalla-front.s3.us-east-1.amazonaws.com/fondo_de_pantalla.png); 
   /*background-image: url(https://pragmalab.s3.amazonaws.com/FONDO-2.png); */
   background-size:cover;
   background-position: center;

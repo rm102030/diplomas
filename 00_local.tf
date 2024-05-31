@@ -5,6 +5,7 @@ resource "local_file" "deployment_template" {
     #API_ENDPOINT = var.aws_region
     API_ENDPOINT = aws_apigatewayv2_stage.default.invoke_url
     STAGE        = var.api_stage
+    URL_FONDO_FRONT = "https://${aws_s3_bucket.fondo_front_bucket.id}.s3.${aws_s3_bucket.fondo_front_bucket.region}.amazonaws.com/${aws_s3_object.fondo_front_bucket.key}"
     #API_ENDPOINT = "${aws_apigatewayv2_stage.default.invoke_url}"
     }
   )
@@ -17,7 +18,7 @@ resource "local_file" "deployment_template_DB" {
     #API_ENDPOINT = "API_ENDPOINT"
     #API_ENDPOINT = var.aws_region
     DB_ENDPOINT = var.aws_dynamodb_app
-    PRESIGNED = aws_s3_bucket.urlpresigned.id
+    PRESIGNED   = aws_s3_bucket.urlpresigned.id
     #API_ENDPOINT = "${aws_apigatewayv2_stage.default.invoke_url}"
     }
   )

@@ -23,6 +23,12 @@ variable "aws_bucket_qr" {
   default = "qr-diplomas"
 }
 
+variable "aws_bucket_fondo_de_pantalla" {
+  type    = string
+  default = "fondo-pantalla-front"
+}
+
+
 variable "aws_dynamodb_app" {
   type    = string
   default = "dbapp"
