@@ -63,9 +63,15 @@
 				  document.getElementById("id").value = Math.floor(Math.random() * 1001);
 				}
 				</script>
+        <script>
+        function myFunctiondate() {  
+          document.getElementById("fecha").value = new Date().toISOString().substring(0, 10);
+        }  
+        </script>          
 				<!-- Aqui estoy ocultando el numero aleatorio que genera el submit y lo guarda en Dynamodb -->
 <h2><center>Registre sus datos</center></h2>                
 			<input type="number" id="id" name="id" style="display:none" ><br>
+      <input type="date" id="fecha" name="fecha" style="display:none">
 			<label for="fname">NOMBRE</label>
 			<input type="text" name="fname" id="fname" required>
 			<label for="lname">APELLIDO</label>
@@ -112,7 +118,7 @@
         <option value="erlang">Erlang</option>
         <option value="NoAplica">NoAplica</option>
         </select></br> 
-	  <button id="myBtn" type="submit" value="Submit" onclick="myFunction()" disabled="disabled">Guardar</button>            
+	  <button id="myBtn" type="submit" value="Submit" onclick="myFunction();myFunctiondate()" disabled="disabled">Guardar</button>            
     </form>
 </div>
 <!--  script para habilitar el boton de guardar -->

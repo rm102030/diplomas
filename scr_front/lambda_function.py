@@ -34,7 +34,7 @@ def page_router(httpmethod,querystring,formbody):
     print(x)
     ########################################################################
     # Importante si ud coloca un campo antes del email en la tabla debe increntar el valor de X , si tiene error revise los logs de la lambda front
-    lista = x[4]
+    lista = x[5]
     print(lista)
     
     spl_word = 'email='
