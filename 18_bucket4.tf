@@ -27,6 +27,6 @@ resource "aws_s3_bucket_ownership_controls" "fondo_de_pantalla" {
 }
 
 output "url_fondo" {
-    description = "url of the bucket"
-    value       = "https://${aws_s3_bucket.fondo_front_bucket.id}.s3.${aws_s3_bucket.fondo_front_bucket.region}.amazonaws.com/${aws_s3_object.fondo_front_bucket.key}"
+  description = "url of the bucket"
+  value       = "https://${aws_s3_bucket.fondo_front_bucket.id}.s3.${aws_s3_bucket.fondo_front_bucket.region}.amazonaws.com/${aws_s3_object.fondo_front_bucket.key}"
 }

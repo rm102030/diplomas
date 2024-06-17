@@ -1,5 +1,6 @@
 locals {
-  lambdas_path = "${path.module}/src"
+  lambdas_path      = "${path.module}/src"
+  lambdas_path_json = "${path.module}/json"
 
   common_tags = {
     Project   = "Lambda Presigned with Terraform"

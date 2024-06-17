@@ -28,7 +28,7 @@ resource "aws_s3_bucket_cors_configuration" "s3_bucket_cors" {
 
 resource "aws_s3_bucket_ownership_controls" "urlpresigned" {
   bucket = aws_s3_bucket.urlpresigned.id
-  rule {    
+  rule {
     object_ownership = "ObjectWriter"
   }
 }
@@ -48,7 +48,7 @@ resource "aws_s3_bucket_acl" "urlpresigned" {
 # Adding S3 bucket as trigger to my lambda and giving the permissions
 ##################
 resource "aws_s3_bucket_notification" "aws-lambda-trigger" {
-  bucket = aws_s3_bucket.urlpresigned.id
+  bucket     = aws_s3_bucket.urlpresigned.id
   depends_on = [aws_lambda_function.qrgenerate]
   lambda_function {
     lambda_function_arn = aws_lambda_function.qrgenerate.arn
