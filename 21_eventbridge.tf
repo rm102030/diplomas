@@ -76,18 +76,18 @@ resource "aws_scheduler_schedule" "invoke_lambda_schedule" {
   }
   schedule_expression = "rate(6 minute)"
   target {
-    arn = "${aws_lambda_function.json.arn}"
+    arn      = aws_lambda_function.json.arn
     role_arn = aws_iam_role.scheduler_role.arn
-    input = jsonencode({"input": "This message was sent using EventBridge Scheduler!"})
+    input    = jsonencode({ "input" : "This message was sent using EventBridge Scheduler!" })
   }
 }
 
 output "ScheduleTargetFunction" {
-  value = "${aws_lambda_function.json.arn}"
+  value       = aws_lambda_function.json.arn
   description = "ARN of Lambda function being invoked from EventBridge Scheduler"
 }
 
 output "ScheduleName" {
-  value = aws_scheduler_schedule.invoke_lambda_schedule.name
+  value       = aws_scheduler_schedule.invoke_lambda_schedule.name
   description = "Name of EventBridge Schedule"
 }
