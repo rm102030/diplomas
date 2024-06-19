@@ -1,8 +1,9 @@
 import time
 import boto3
 import sys
-
-                                
+import socket
+import os                                
+import io
 
 client = boto3.client('dynamodb')
 

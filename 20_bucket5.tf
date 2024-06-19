@@ -41,3 +41,10 @@ resource "aws_s3_bucket_acl" "json" {
   acl    = "public-read-write"
 
 }
+
+resource "aws_s3_object" "json_file" {
+  bucket = aws_s3_bucket.exportdynamojson.id
+  key    = "main.js"
+  source = "./json/main.js"
+  content_type = "application/javascript"
+}
